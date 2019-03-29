@@ -2,40 +2,8 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<item android:drawable="@drawable/state_unavailable" app:tsquare_state_highlighted="true"/>-->
-    <!--<item android:drawable="@android:color/transparent" app:tsquare_state_today="true" app:tsquare_state_unavailable="false"/>-->
-
-
     <item android:drawable="@drawable/state_selected" app:tsquare_state_range_first="true"/>
     <item android:drawable="@drawable/state_selected" app:tsquare_state_range_last="true"/>
-
-    <!--<item android:drawable="@drawable/state_selected"-->
-        <!--app:tsquare_state_range_middle="true" app:tsquare_state_highlighted="true"-->
-        <!--android:state_selected="true"/>-->
-    <!--<item android:drawable="@drawable/state_selected"-->
-        <!--app:tsquare_state_range_middle="true" app:tsquare_state_highlighted="true"-->
-        <!--android:state_selected="false"/>-->
-
-    <!--<item android:drawable="@drawable/state_selected_alpha"-->
-        <!--app:tsquare_state_range_middle="true" app:tsquare_state_highlighted="false"-->
-        <!--android:state_selected="true"/>-->
-    <!--<item android:drawable="@drawable/state_selected_alpha"-->
-        <!--app:tsquare_state_range_middle="true" app:tsquare_state_highlighted="false"-->
-        <!--android:state_selected="false"/>-->
-
-    <!--<item android:drawable="@drawable/state_selected"-->
-        <!--app:tsquare_state_range_middle="false" app:tsquare_state_highlighted="true"-->
-        <!--android:state_selected="true"/>-->
-    <!--<item android:drawable="@drawable/state_normal"-->
-        <!--app:tsquare_state_range_middle="false" app:tsquare_state_highlighted="true"-->
-        <!--android:state_selected="false"/>-->
-
-    <!--<item android:drawable="@drawable/state_normal"-->
-        <!--app:tsquare_state_range_middle="false" app:tsquare_state_highlighted="false"-->
-        <!--android:state_selected="true"/>-->
-    <!--<item android:drawable="@drawable/state_normal"-->
-        <!--app:tsquare_state_range_middle="false" app:tsquare_state_highlighted="false"-->
-        <!--android:state_selected="false"/>-->
 
     <item android:drawable="@drawable/state_selected" app:tsquare_state_unavailable="true"/>
 

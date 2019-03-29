@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="CalendarTitle">
-        <item name="android:textSize">@dimen/calendar_text_large</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/calendar_month_size</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="CalendarCell">
@@ -13,11 +15,16 @@
     </style>
 
     <style name="CalendarCell.DayHeader">
-        <item name="android:textSize">@dimen/calendar_text_small</item>
+        <item name="android:textColor">@color/mono_gray_60</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/calendar_day_of_week_size</item>
     </style>
 
     <style name="CalendarCell.CalendarDate">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textSize">@dimen/calendar_text_medium</item>
+        <item name="android:textSize">@dimen/calendar_cell_day_size</item>
     </style>
 </resources>

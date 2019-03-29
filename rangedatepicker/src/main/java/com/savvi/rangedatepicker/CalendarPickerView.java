@@ -17,9 +17,24 @@ import android.view.ViewGroup;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
-import static java.util.Calendar.*;
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.DAY_OF_WEEK;
+import static java.util.Calendar.HOUR_OF_DAY;
+import static java.util.Calendar.MILLISECOND;
+import static java.util.Calendar.MINUTE;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.SECOND;
+import static java.util.Calendar.YEAR;
 
 
 public class CalendarPickerView extends RecyclerView {
@@ -56,7 +71,7 @@ public class CalendarPickerView extends RecyclerView {
     private Locale locale;
     private TimeZone timeZone;
     private DateFormat monthNameFormat;
-    private DateFormat weekdayNameFormat;
+    private SimpleDateFormat weekdayNameFormat;
     private DateFormat fullDateFormat;
     private Calendar minCal;
     private Calendar maxCal;
@@ -174,7 +189,7 @@ public class CalendarPickerView extends RecyclerView {
         monthCounter = Calendar.getInstance(timeZone, locale);
         this.monthNameFormat = monthNameFormat;
         monthNameFormat.setTimeZone(timeZone);
-        weekdayNameFormat = new SimpleDateFormat("E", locale);
+        weekdayNameFormat = new SimpleDateFormat("EEE", locale);
         weekdayNameFormat.setTimeZone(timeZone);
         fullDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, locale);
         fullDateFormat.setTimeZone(timeZone);
@@ -275,7 +290,7 @@ public class CalendarPickerView extends RecyclerView {
             DateFormatSymbols symbols = new DateFormatSymbols(locale);
             symbols.setShortWeekdays(newShortWeekdays);
             weekdayNameFormat =
-                    new SimpleDateFormat("E", symbols);
+                    new SimpleDateFormat("EEE", symbols);
             return this;
         }
 

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -26,7 +26,7 @@ public class MonthView extends LinearLayout {
     ArrayList<Integer> deactivatedDates;
 
     public static MonthView create(ViewGroup parent, LayoutInflater inflater,
-                                   DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
+                                   SimpleDateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
                                    int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
                                    int headerTextColor, Locale locale, DayViewAdapter adapter) {
         return create(parent, inflater, weekdayNameFormat, listener, today, dividerColor,
@@ -35,7 +35,7 @@ public class MonthView extends LinearLayout {
     }
 
     public static MonthView create(ViewGroup parent, LayoutInflater inflater,
-                                   DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
+                                   SimpleDateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
                                    int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
                                    int headerTextColor, List<CalendarCellDecorator> decorators, Locale locale,
                                    DayViewAdapter adapter) {
@@ -60,7 +60,9 @@ public class MonthView extends LinearLayout {
         for (int offset = 0; offset < 7; offset++) {
             today.set(Calendar.DAY_OF_WEEK, getDayOfWeek(firstDayOfWeek, offset, view.isRtl));
             final TextView textView = (TextView) headerRow.getChildAt(offset);
-            textView.setText(weekdayNameFormat.format(today.getTime()));
+            String dateStr = weekdayNameFormat.format(today.getTime());
+            dateStr = dateStr.replaceFirst(String.valueOf(dateStr.charAt(0)), String.valueOf(dateStr.charAt(0)).toUpperCase());
+            textView.setText(dateStr);
         }
         today.set(Calendar.DAY_OF_WEEK, originalDayOfWeek);
         view.listener = listener;

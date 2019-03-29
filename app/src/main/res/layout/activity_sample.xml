@@ -17,7 +17,6 @@
         android:paddingRight="16dp"
         android:scrollbarStyle="outsideOverlay"
         app:tsquare_dividerColor="@color/transparent"
-        app:tsquare_headerTextColor="@color/custom_header_text"
         android:layout_above="@+id/btn"
         />
 

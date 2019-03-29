@@ -1,8 +1,8 @@
 package com.savvi.rangepickersample;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.savvi.rangedatepicker.CalendarCellDecorator;
 import com.savvi.rangedatepicker.CalendarCellView;
 import com.savvi.rangedatepicker.CalendarPickerView;
-import com.savvi.rangedatepicker.RangeState;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,7 +55,7 @@ public class SampleActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        calendar.init(lastYear.getTime(), nextYear.getTime(), new SimpleDateFormat("MMMM"))
+        calendar.init(lastYear.getTime(), nextYear.getTime(), new SimpleDateFormat("LLLL"))
                 .inMode(CalendarPickerView.SelectionMode.RANGE)
                 .withHighlightedDates(arrayList);
         calendar.setDateSelectableFilter(new CalendarPickerView.DateSelectableFilter() {
@@ -86,5 +85,16 @@ public class SampleActivity extends AppCompatActivity {
                 Log.d("228322", "error");
             }
         });
+        CalendarCellDecorator decorator = new CalendarCellDecorator() {
+            @Override
+            public void decorate(CalendarCellView cellView, Date date) {
+                TextView textView = cellView.getDayOfMonthTextView();
+                textView.setTypeface(textView.getTypeface(),
+                        cellView.isHighlighted() ? Typeface.BOLD : Typeface.NORMAL);
+            }
+        };
+        List<CalendarCellDecorator> decorators = new ArrayList<>();
+        decorators.add(decorator);
+        calendar.setDecorators(decorators);
     }
 }
