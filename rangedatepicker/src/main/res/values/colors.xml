@@ -3,9 +3,10 @@
     <color name="calendar_bg">#ffffff</color>
     <color name="calendar_divider">#f5f5f5</color>
     <color name="calendar_inactive_month_bg">#ffffff</color>
-    <color name="calendar_selected_day_bg">#ffcf40</color>
-    <color name="calendar_highlighted_day_bg">#ffcf40</color>
-    <color name="calendar_selected_range_bg">#ffcf40</color>
+    <color name="calendar_selected_day_bg">#22AAFF</color>
+    <color name="calendar_selected_day_bg_50">#8022AAFF</color>
+    <color name="calendar_highlighted_day_bg">#22AAFF</color>
+    <color name="calendar_selected_range_bg">#22AAFF</color>
     <color name="calendar_unavailable_bg">#ef5350</color>
     <color name="calendar_range_middle_unavailable_bg">#ef5350</color>
 
@@ -22,4 +23,9 @@
     <color name="dateTimeRangePickerTitleTextColor">@android:color/black</color>
     <color name="dateTimeRangePickerRangeTextColorActive">@android:color/white</color>
     <color name="dateTimeRangePickerRangeTextColorInactive">#B9B9B9</color>
+
+    <color name="white">#ffffff</color>
+    <color name="mono_gray_5">#F9F9F9</color>
+    <color name="mono_gray_40">#CFCFCF</color>
+    <color name="mono_gray_100">#6D6E70</color>
 </resources>

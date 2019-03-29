@@ -30,8 +30,8 @@ public class MonthView extends LinearLayout {
                                    int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
                                    int headerTextColor, Locale locale, DayViewAdapter adapter) {
         return create(parent, inflater, weekdayNameFormat, listener, today, dividerColor,
-            dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader, headerTextColor, null,
-            locale, adapter);
+                dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader, headerTextColor, null,
+                locale, adapter);
     }
 
     public static MonthView create(ViewGroup parent, LayoutInflater inflater,
@@ -57,7 +57,7 @@ public class MonthView extends LinearLayout {
         view.locale = locale;
         int firstDayOfWeek = today.getFirstDayOfWeek();
         final CalendarRowView headerRow = (CalendarRowView) view.grid.getChildAt(0);
-        for(int offset = 0; offset < 7; offset++) {
+        for (int offset = 0; offset < 7; offset++) {
             today.set(Calendar.DAY_OF_WEEK, getDayOfWeek(firstDayOfWeek, offset, view.isRtl));
             final TextView textView = (TextView) headerRow.getChildAt(offset);
             textView.setText(weekdayNameFormat.format(today.getTime()));
@@ -80,7 +80,7 @@ public class MonthView extends LinearLayout {
         // TODO convert the build to gradle and use getLayoutDirection instead of this (on 17+)?
         final int directionality = Character.getDirectionality(locale.getDisplayName(locale).charAt(0));
         return directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT
-            || directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
+                || directionality == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
     }
 
     public MonthView(Context context, AttributeSet attrs) {
@@ -111,27 +111,27 @@ public class MonthView extends LinearLayout {
 
         final int numRows = cells.size();
         grid.setNumRows(numRows);
-        for(int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             CalendarRowView weekRow = (CalendarRowView) grid.getChildAt(i + 1);
             weekRow.setListener(listener);
             if (i < numRows) {
                 weekRow.setVisibility(VISIBLE);
                 List<MonthCellDescriptor> week = cells.get(i);
-                for(int c = 0; c < week.size(); c++) {
+                for (int c = 0; c < week.size(); c++) {
                     MonthCellDescriptor cell = week.get(isRtl ? 6 - c : c);
                     CalendarCellView cellView = (CalendarCellView) weekRow.getChildAt(c);
 
                     String cellDate = numberFormatter.format(cell.getValue());
-                    if (! cellView.getDayOfMonthTextView().getText().equals(cellDate)) {
+                    if (!cellView.getDayOfMonthTextView().getText().equals(cellDate)) {
                         cellView.getDayOfMonthTextView().setText(cellDate);
                     }
                     cellView.setEnabled(cell.isCurrentMonth());
                     int dayOfWeek = c + 1;
-                  if (deactivatedDates.contains(dayOfWeek)) {
-                    cellView.setClickable(false);
-                  } else {
-                    cellView.setClickable(! displayOnly);
-                  }
+                    if (deactivatedDates.contains(dayOfWeek)) {
+                        cellView.setClickable(false);
+                    } else {
+                        cellView.setClickable(!displayOnly);
+                    }
 
 
                     if (deactivatedDates.contains(dayOfWeek)) {
@@ -159,7 +159,7 @@ public class MonthView extends LinearLayout {
                     cellView.setTag(cell);
 
                     if (null != decorators) {
-                        for(CalendarCellDecorator decorator : decorators) {
+                        for (CalendarCellDecorator decorator : decorators) {
                             decorator.decorate(cellView, cell.getDate());
                         }
                     }

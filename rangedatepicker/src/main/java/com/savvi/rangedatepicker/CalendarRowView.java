@@ -6,16 +6,19 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import static android.view.View.MeasureSpec.AT_MOST;
 import static android.view.View.MeasureSpec.EXACTLY;
 import static android.view.View.MeasureSpec.makeMeasureSpec;
+import static android.widget.LinearLayout.LayoutParams.*;
 
 /**
  * TableRow that draws a divider between each cell. To be used with {@link CalendarGridView}.
  */
-public class CalendarRowView extends ViewGroup implements View.OnClickListener {
+public class CalendarRowView extends LinearLayout implements View.OnClickListener {
     private boolean isHeaderRow;
     private MonthView.Listener listener;
 
@@ -24,7 +27,7 @@ public class CalendarRowView extends ViewGroup implements View.OnClickListener {
     }
 
     @Override
-    public void addView(View child, int index, LayoutParams params) {
+    public void addView(View child, int index, ViewGroup.LayoutParams params) {
         child.setOnClickListener(this);
         super.addView(child, index, params);
     }
@@ -64,6 +67,10 @@ public class CalendarRowView extends ViewGroup implements View.OnClickListener {
             int l = ((c + 0) * width) / 7;
             int r = ((c + 1) * width) / 7;
             child.layout(l, 0, r, cellHeight);
+            LayoutParams lp = new LayoutParams(
+                    WRAP_CONTENT, WRAP_CONTENT);
+            lp.setMargins(4, 4, 4, 4);
+            child.setLayoutParams(lp);
         }
         Logr.d("Row.onLayout %d ms", System.currentTimeMillis() - start);
     }

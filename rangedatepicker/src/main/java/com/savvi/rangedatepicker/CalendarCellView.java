@@ -3,7 +3,10 @@ package com.savvi.rangedatepicker;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class CalendarCellView extends FrameLayout {
     private static final int[] STATE_SELECTABLE = {
@@ -47,6 +50,10 @@ public class CalendarCellView extends FrameLayout {
     @SuppressWarnings("UnusedDeclaration") //
     public CalendarCellView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                WRAP_CONTENT, WRAP_CONTENT);
+        lp.setMargins(4, 4, 4, 4);
+        this.setLayoutParams(lp);
     }
 
     public void setSelectable(boolean isSelectable) {

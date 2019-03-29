@@ -7,12 +7,12 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
@@ -481,9 +481,9 @@ public class CalendarPickerView extends RecyclerView {
         public void handleClick(MonthCellDescriptor cell) {
             Date clickedDate = cell.getDate();
 
-            if (highlightedCells.contains(cell)) {
-                return;
-            }
+//            if (highlightedCells.contains(cell)) {
+//                return;
+//            }
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(clickedDate);

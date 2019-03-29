@@ -17,6 +17,7 @@
     </style>
 
     <style name="CalendarCell.CalendarDate">
+        <item name="android:layout_gravity">center</item>
         <item name="android:textSize">@dimen/calendar_text_medium</item>
     </style>
 </resources>
