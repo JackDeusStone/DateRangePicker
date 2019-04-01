@@ -108,7 +108,11 @@ public class MonthView extends LinearLayout {
                      boolean displayOnly, Typeface titleTypeface, Typeface dateTypeface, ArrayList<Integer> deactivatedDates) {
         Logr.d("Initializing MonthView (%d) for %s", System.identityHashCode(this), month);
         long start = System.currentTimeMillis();
-        title.setText(month.getLabel());
+        String monthName = month.getLabel();
+        monthName = monthName.replaceFirst(
+                String.valueOf(monthName.charAt(0)),
+                String.valueOf(monthName.charAt(0)).toUpperCase());
+        title.setText(monthName);
         NumberFormat numberFormatter = NumberFormat.getInstance(locale);
 
         final int numRows = cells.size();
