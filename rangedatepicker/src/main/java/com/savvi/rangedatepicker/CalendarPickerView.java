@@ -456,9 +456,7 @@ public class CalendarPickerView extends RecyclerView {
     public List<Date> getSelectedDates() {
         List<Date> selectedDates = new ArrayList<>();
         for (MonthCellDescriptor cal : selectedCells) {
-            if (!highlightedCells.contains(cal)) {
-                selectedDates.add(cal.getDate());
-            }
+            selectedDates.add(cal.getDate());
         }
         Collections.sort(selectedDates);
         return selectedDates;
